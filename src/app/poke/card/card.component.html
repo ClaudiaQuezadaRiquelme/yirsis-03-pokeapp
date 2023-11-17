@@ -2,11 +2,11 @@
     <img 
         mat-card-image 
         src="https://material.angular.io/assets/img/examples/shiba2.jpg" 
-        alt="Photo of a Shiba Inu"
+        alt="Photo of a {{data.name | titlecase}}"
     />
     <mat-card-content>
         <mat-card-title>
-            Pokemon
+            {{data.name | titlecase}}
         </mat-card-title>
     </mat-card-content>
 </mat-card>

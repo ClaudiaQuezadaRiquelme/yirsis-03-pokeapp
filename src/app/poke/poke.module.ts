@@ -7,6 +7,7 @@ import { CardComponent } from './card/card.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CommonModule,
     MatToolbarModule,
     MatGridListModule,
+    MatCardModule,
   ],
   exports: [
     GridComponent

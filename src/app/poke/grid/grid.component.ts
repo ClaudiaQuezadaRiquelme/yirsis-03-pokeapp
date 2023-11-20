@@ -14,29 +14,27 @@ export class GridComponent implements OnInit {
   constructor(
     private pokeService: PokeService,
   ) {
-    pokeService.getList().subscribe((resp: any)=> {
-      console.log('pokeservice:',resp);
-      this.pokeList = resp.results;
-    });
+    this.setData();
   }
 
   ngOnInit(): void {
   }
 
-  nextPage() {
-    this.page += this.pokeService.getLimit;
+  setData(page?: number) {
     this.pokeService.getList(this.page).subscribe((resp: any)=> {
       console.log('pokeservice:',resp);
       this.pokeList = resp.results;
     });
   }
 
+  nextPage() {
+    this.page += this.pokeService.getLimit;
+    this.setData(this.page);
+  }
+
   prevPage() {
     this.page -= this.pokeService.getLimit;
-    this.pokeService.getList(this.page).subscribe((resp: any)=> {
-      console.log('pokeservice:',resp);
-      this.pokeList = resp.results;
-    });
+    this.setData(this.page);
   }
 
 }

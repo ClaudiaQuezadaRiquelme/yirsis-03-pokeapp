@@ -9,7 +9,7 @@ import { PokeService } from '../../services/poke.service';
 export class CardComponent implements OnInit {
 
   @Input()
-  data: any;
+  data: any = {name:''};
 
   urlImg: string = '';
 

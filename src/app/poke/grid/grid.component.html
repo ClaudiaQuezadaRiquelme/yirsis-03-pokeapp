@@ -7,10 +7,10 @@
 </mat-grid-list>
 
 <div class="btns">
-    <button mat-fab color="primary" aria-label="Prev button">
+    <button [disabled]="page === 0" mat-fab color="primary" aria-label="Prev button" (click)="prevPage()">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-fab color="warn" aria-label="Next button">
+    <button mat-fab color="warn" aria-label="Next button" (click)="nextPage()">
         <mat-icon>arrow_forward</mat-icon>
     </button>
 </div>

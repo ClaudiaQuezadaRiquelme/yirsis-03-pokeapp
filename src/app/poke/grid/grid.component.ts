@@ -9,6 +9,7 @@ import { PokeService } from '../../services/poke.service';
 export class GridComponent implements OnInit {
 
   pokeList: Array<any> = [];
+  page: number = 0;
 
   constructor(
     private pokeService: PokeService,
@@ -20,6 +21,22 @@ export class GridComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  nextPage() {
+    this.page += this.pokeService.getLimit;
+    this.pokeService.getList(this.page).subscribe((resp: any)=> {
+      console.log('pokeservice:',resp);
+      this.pokeList = resp.results;
+    });
+  }
+
+  prevPage() {
+    this.page -= this.pokeService.getLimit;
+    this.pokeService.getList(this.page).subscribe((resp: any)=> {
+      console.log('pokeservice:',resp);
+      this.pokeList = resp.results;
+    });
   }
 
 }

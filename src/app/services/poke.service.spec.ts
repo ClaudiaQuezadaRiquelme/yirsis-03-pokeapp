@@ -38,4 +38,14 @@ describe('PokeService', () => {
     expect(request.request.method).toEqual('GET');
     request.flush({}); // permite simular una respuesta
   });
+
+  it('Debería retornar la lista de pokemones', ( done:DoneFn )=> {
+    const url: string = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=8';
+    service.getList().subscribe((resp: any)=>{
+      expect(resp).toEqual(pokeListMock);
+      expect(resp.results.length).toBe(8);
+      done();
+    });
+    httpClient.expectOne(url).flush(pokeListMock);
+  });
 });

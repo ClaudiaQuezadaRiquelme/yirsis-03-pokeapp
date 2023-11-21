@@ -13,6 +13,10 @@ export class PokeService {
     private http: HttpClient
   ) { }
 
+  get getUrl() {
+    return `${this.baseUrl}pokemon?`;
+  }
+
   getList(page: number = 0) {
     return this.http.get(
       `${this.baseUrl}pokemon?`,
